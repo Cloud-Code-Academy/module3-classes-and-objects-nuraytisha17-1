@@ -26,7 +26,7 @@
  * Math class: https://developer.salesforce.com/docs/atlas.en-us.apexref.meta/apexref/apex_methods_system_math.htm
  * Classes: https://developer.salesforce.com/docs/atlas.en-us.apexcode.meta/apexcode/apex_classes_understanding.htm
  *
- * @author Your Name
+ * @author Nuray Tisha
  */
 
 public with sharing class ClassesObjectsMethods {
@@ -40,17 +40,27 @@ public with sharing class ClassesObjectsMethods {
      */
     public static List<String> practiceStringMethods() {
         // Initialize a String with 'Hello, Salesforce!'
+        String resultString = 'Hello, Salesforce!';
         
-        // Get the length of the String        
+        // Get the length of the String
+        Integer resultStringLength = resultString.length();
+                
         // Get a substring of the String of the first 5 characters
+        String resultStrSubstr = resultString.substring(0, 5);
         // Convert the String to lower case
+        String resultStrLower = resultString.toLowerCase();
         
         // Return the list with the string data
         // In the first position add the string length
         // In the second position add the substring
         // In the third position add the string in lower case
+        List<String> resultStringList = new List<String> {
+            String.valueOf(resultStringLength), 
+            resultStrSubstr, 
+            resultStrLower
+        };
 
-        return null; // Replace null with the variable you used to store the result
+        return resultStringList; // Replace null with the variable you used to store the result
     }
 
     /**
@@ -62,14 +72,16 @@ public with sharing class ClassesObjectsMethods {
      */
     public static List<Boolean> checkStringContent(String input) {
         // Initialize a list to store the results
-        
         // Check if the string starts with 'Sales'
-        
         // Check if the string ends with 'Force'
-        
         // Check if the string contains 'Awesome'
+        List<Boolean> checkStringList = new List<Boolean> {
+            input.startsWith('Sales'),
+            input.endsWith('Force'),
+            input.contains('Awesome')
+        };
         
-        return null; // Replace null with the variable you used to store the result
+        return checkStringList; // Replace null with the variable you used to store the result
     }
 
     /**
@@ -81,15 +93,21 @@ public with sharing class ClassesObjectsMethods {
      */
     public static String removeDuplicateWords(String sentence) {
         // Split the sentence into words
+        List<String> splitWordsList = sentence.split(' ');
 
         // Create a set to store the unique words
-
+        Set<String> uniqueSet = new Set<String>();
         // Add each word to the set
+        for (String words : splitWordsList) 
+        {
+            uniqueSet.add(words);
+        }
 
         // Join the unique words back into a sentence
+        String joinedSentence = String.join(uniqueSet, ' ');
 
         // Return the sentence with unique words
-        return null; // Replace null with the variable you used to store the result
+        return joinedSentence; // Replace null with the variable you used to store the result
     }
 
     /**
