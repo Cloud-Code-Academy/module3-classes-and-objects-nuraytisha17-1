@@ -120,16 +120,21 @@ public with sharing class ClassesObjectsMethods {
      */
     public static Integer countVowels(String str) {
         // Initialize the result Integer
+        Integer vowelCount = 0;
+        Set<String> vowelsSet = New Set<String> {'a', 'e', 'i', 'o', 'u'};
 
-        /*
-        for () {
-            // get individual characters from the string - hint use substring or split
-            // check if the character is a vowel
-            // if it is a vowel, increment the result Integer
+        // get individual characters from the string - hint use substring or split
+        // check if the character is a vowel
+        // if it is a vowel, increment the result Integer
+        for (String letter : str.split('')) 
+        {
+            if (vowelsSet.contains(letter.toLowerCase()))
+            {
+                vowelCount++;
+            }
         }
-        */
 
-        return null; // Replace null with the variable you used to store the result
+        return vowelCount; // Replace null with the variable you used to store the result
     }
 
     /**
@@ -141,19 +146,36 @@ public with sharing class ClassesObjectsMethods {
      */
     public static String findTheScientist() {
         // The list of scientists' names
-        List<String> scientistNames = new List<String>{'Tim Berners-Lee', 'Alan Turing', 'Grace Hopper', 'Donald Knuth', 'Guido van Rossum', 'Ken Thompson', 'Stephen Hawking'};
+        List<String> scientistNames = new List<String>{
+            'Tim Berners-Lee', 
+            'Alan Turing', 
+            'Grace Hopper', 
+            'Donald Knuth', 
+            'Guido van Rossum', 
+            'Ken Thompson', 
+            'Stephen Hawking'};
 
         // The variable to store the concatenated string
+        String concatString = '';
 
         // Loop through the list of scientists' names
-
-            // If the name doesn't contain the letter 'G', skip this iteration
-
-            // Add the name to the result string, followed by a comma
+        for (String scientist : scientistNames)
+        {
+        // If the name doesn't contain the letter 'G', skip this iteration
+        // Add the name to the result string, followed by a comma
+            if (scientist.toLowerCase().contains('g'))
+            {
+                concatString += scientist + ',';
+            }
+        }
 
         // Remove the last comma from the result string
+        if (!String.isEmpty(concatString))
+        {
+            concatString = concatString.removeEndIgnoreCase(',');
+        }
 
-        return null; // Replace null with the variable you used to store the result
+        return concatString; // Replace null with the variable you used to store the result
     }
 
     /**
@@ -166,11 +188,14 @@ public with sharing class ClassesObjectsMethods {
      */
     public static Double calculateDifferenceOfSquares(Double a, Double b) {
         // Square the input numbers using the Math.pow() function
+        Double squareA = Math.pow(a, 2);
+        Double squareB = Math.pow(b, 2);
 
         // Calculate the absolute difference using Math.abs() function
+        Double absDifference = Math.abs(squareA - squareB);
 
         // Return the result
-        return null; // Replace null with the variable you used to store the result
+        return absDifference; // Replace null with the variable you used to store the result
     }
 
     /**
