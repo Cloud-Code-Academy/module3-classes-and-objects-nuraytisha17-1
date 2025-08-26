@@ -206,9 +206,13 @@ public with sharing class ClassesObjectsMethods {
      */
     public static Integer generateRandomNumber() {
         // Use Math class to generate number between 50 and 100
+        Integer minNum = 50;
+        Integer maxNum = 100;
+
+        Integer getRandomNum = (Integer)(Math.random()) * (minNum - maxNum + 1) + minNum;
 
         // Return the random integer
-        return null; // Replace null with the variable you used to store the result
+        return getRandomNum; // Replace null with the variable you used to store the result
     }
 
     /**
@@ -219,11 +223,13 @@ public with sharing class ClassesObjectsMethods {
      */
     public static String getCurrentDate() {
         // Get the todays date
+        Date todayDate = date.today();
 
         // Format the current date
+        String myDate = todayDate.format();
 
         // Return the result
-        return null; // Replace null with the variable you used to store the result
+        return myDate; // Replace null with the variable you used to store the result
     }
 
     /**
@@ -235,13 +241,25 @@ public with sharing class ClassesObjectsMethods {
     public static String getDayOfWeek(DateTime dt) {
         // Define a map of day of the week as a key and day number as the value
         // Monday = 1, Tuesday = 2, etc.
+        Map<String, Integer> dayToNumber = new Map<String, Integer> {
+            'Monday' => 1,
+            'Tuesday' => 2,
+            'Wednesday' => 3,
+            'Thursday' => 4,
+            'Friday' => 5,
+            'Saturday' => 6,
+            'Sunday' => 7
+        };
 
         // Get the day name using .format('EEEE');
+        String dayName = dt.format('EEEE');
 
         // Get the day number from the map using the day name
+        Integer dayNum = dayToNumber.get(dayName);
+        String resultName = String.valueOf(dayNum);
 
         // Return the result as a string
-        return null; // Replace null with the variable you used to store the result
+        return resultName; // Replace null with the variable you used to store the result
     }
 
 
@@ -256,9 +274,15 @@ public with sharing class ClassesObjectsMethods {
      */
     public static Integer calculateYearDifference(Date d1, Date d2) {
 
-        // Subtract the difference in years
+        if (d1 == null || d2 == null)
+        {
+            return null;
+        }
 
-        return null; // Replace null with the variable you used to store the result
+        // Subtract the difference in years
+        Integer yearDiff = Math.abs(d1.year() - d2.year());
+
+        return yearDiff; // Replace null with the variable you used to store the result
     }
 
     /**
